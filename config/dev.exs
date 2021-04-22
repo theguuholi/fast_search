@@ -35,16 +35,16 @@ config :fast_search, FastSearch.ElasticsearchCluster,
   username: System.get_env("ELASTICSEARCH_USR"),
   password: System.get_env("ELASTICSEARCH_PW"),
   api: Elasticsearch.API.HTTP,
-  json_library: Jason
-  # indexes: %{
-  #   posts: %{
-  #     settings: "priv/elasticsearch/posts.json",
-  #     store: MyApp.ElasticsearchStore,
-  #     sources: [MyApp.Post],
-  #     bulk_page_size: 5000,
-  #     bulk_wait_interval: 15_000
-  #   }
-  # }
+  json_library: Jason,
+  indexes: %{
+    products: %{
+      settings: "priv/elasticsearch/products.json",
+      store: FastSearch.Elasticsearch.Store,
+      sources: [FastSearch.Products.Data.Product],
+      bulk_page_size: 5000,
+      bulk_wait_interval: 15_000
+    }
+  }
 
 # ## SSL Support
 #
