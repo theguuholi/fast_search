@@ -30,6 +30,22 @@ config :fast_search, FastSearchWeb.Endpoint,
     ]
   ]
 
+config :fast_search, FastSearch.ElasticsearchCluster,
+  url: System.get_env("ELASTICSEARCH_URL"),
+  username: System.get_env("ELASTICSEARCH_USR"),
+  password: System.get_env("ELASTICSEARCH_PW"),
+  api: Elasticsearch.API.HTTP,
+  json_library: Jason
+  # indexes: %{
+  #   posts: %{
+  #     settings: "priv/elasticsearch/posts.json",
+  #     store: MyApp.ElasticsearchStore,
+  #     sources: [MyApp.Post],
+  #     bulk_page_size: 5000,
+  #     bulk_wait_interval: 15_000
+  #   }
+  # }
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

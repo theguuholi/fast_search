@@ -14,7 +14,8 @@ defmodule FastSearch.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: FastSearch.PubSub},
       # Start the Endpoint (http/https)
-      FastSearchWeb.Endpoint
+      FastSearchWeb.Endpoint,
+      FastSearch.ElasticsearchCluster
       # Start a worker by calling: FastSearch.Worker.start_link(arg)
       # {FastSearch.Worker, arg}
     ]
